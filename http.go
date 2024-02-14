@@ -43,7 +43,7 @@ func processRequest(tx types.Transaction, req *http.Request) (*types.Interruptio
 	if req.Host != "" {
 		tx.AddRequestHeader("Host", req.Host)
 		// This connector relies on the host header (now host field) to populate ServerName
-		tx.SetServerName(parseServerName(req.Host))
+		tx.SetServerName("stage.capazunda.at")
 	}
 
 	// Transfer-Encoding header is removed by go/http
