@@ -41,7 +41,7 @@ func processRequest(tx types.Transaction, req *http.Request) (*types.Interruptio
 	// Host will always be removed from req.Headers() and promoted to the
 	// Request.Host field, so we manually add it
 	if req.Host != "" {
-		tx.AddRequestHeader("Host", req.Host)
+		tx.AddRequestHeader("Host", "stage.capazunda.at")
 		// This connector relies on the host header (now host field) to populate ServerName
 		tx.SetServerName("stage.capazunda.at")
 	}
