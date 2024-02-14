@@ -116,6 +116,7 @@ func (m corazaModule) ServeHTTP(w http.ResponseWriter, r *http.Request, next cad
 	// ProcessRequest is just a wrapper around ProcessConnection, ProcessURI,
 	// ProcessRequestHeaders and ProcessRequestBody.
 	// It fails if any of these functions returns an error and it stops on interruption.
+	m.logger.Info(r.Host)
 	if it, err := processRequest(tx, r); err != nil {
 		return caddyhttp.HandlerError{
 			StatusCode: http.StatusInternalServerError,
